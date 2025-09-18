@@ -1,6 +1,7 @@
 # 🤖 DocuScope AI
 
-> **Privacy-first document analysis with local AI processing**
+> **Privacy-first document analysis with local AI processing**  
+> *Built by [David Osei Kumi](https://www.linkedin.com/in/david-osei-kumi)*
 
 DocuScope AI is a powerful document analysis tool that uses **Retrieval-Augmented Generation (RAG)** to provide intelligent insights from your CSV and PDF files. Built with privacy-first principles, it runs completely offline using local Ollama models.
 
@@ -140,6 +141,12 @@ embedding = OllamaEmbeddings(model="nomic-embed-text")
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 👨‍💻 Author
+
+**David Osei Kumi**
+- LinkedIn: [linkedin.com/in/david-osei-kumi](https://www.linkedin.com/in/david-osei-kumi)
+- GitHub: [@dkumi12](https://github.com/dkumi12)
+
 ## 🙏 Acknowledgments
 
 - [Ollama](https://ollama.ai/) for excellent local AI models
@@ -148,4 +155,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for privacy-conscious document analysis**
+**Built with ❤️ by David Osei Kumi for privacy-conscious document analysis**

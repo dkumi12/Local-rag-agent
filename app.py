@@ -220,7 +220,7 @@ def render_footer():
         <div class="footer">
             🔒 Runs fully offline. Your data never leaves your device.<br>
             Built with ❤️ using LangChain, Streamlit, and Ollama<br>
-            <span>Developed by David Osei Kumi</span>
+            <span>Developed by <a href="https://www.linkedin.com/in/david-osei-kumi" target="_blank" style="color: #B87333; text-decoration: none;">David Osei Kumi</a></span>
         </div>
         """,
         unsafe_allow_html=True,

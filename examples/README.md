@@ -45,3 +45,7 @@ For your own documents, try questions like:
 - "What methodology was used?"
 - "What are the main findings?"
 - "List the key references"
+
+---
+
+*Created by [David Osei Kumi](https://www.linkedin.com/in/david-osei-kumi)*

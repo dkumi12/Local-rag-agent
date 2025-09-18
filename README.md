@@ -1,8 +1,13 @@
-# 📄 DocuScope AI
+# 🤖 DocuScope AI
 
-> **Your private AI agent for documents — classic, clear, offline insights.**
+> **Privacy-first document analysis with local AI processing**
 
-DocuScope AI is a powerful document analysis tool that leverages **Retrieval-Augmented Generation (RAG)** to provide intelligent insights from your CSV and PDF files. Built with privacy-first principles, it runs completely offline using local Ollama models.
+DocuScope AI is a powerful document analysis tool that uses **Retrieval-Augmented Generation (RAG)** to provide intelligent insights from your CSV and PDF files. Built with privacy-first principles, it runs completely offline using local Ollama models.
+
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Streamlit](https://img.shields.io/badge/streamlit-1.29.0-red.svg)
+![LangChain](https://img.shields.io/badge/langchain-0.1.0-green.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## ✨ Features
 
@@ -12,107 +17,122 @@ DocuScope AI is a powerful document analysis tool that leverages **Retrieval-Aug
 - 🎨 **Beautiful UI** - Clean, responsive Streamlit interface
 - ⚡ **Fast Vector Search** - ChromaDB for efficient document retrieval
 - 🔍 **Intelligent Q&A** - Ask natural language questions about your documents
+- 💻 **Dual Interface** - Web app and command-line interface
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Python 3.8+
-- [Ollama](https://ollama.ai/) installed locally
-- Required Ollama models:
-  ```bash
-  ollama pull llama3.2:3b
-  ollama pull mxbai-embed-large
-  ```
+```bash
+# Install Ollama
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Pull required models
+ollama pull llama3.2:3b
+ollama pull mxbai-embed-large
+```
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/local-ag-csv.git
-   cd local-ag-csv
-   ```
+```bash
+# Clone repository
+git clone https://github.com/dkumi12/Local-rag-agent.git
+cd Local-rag-agent
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-3. **Run the application**
-   ```bash
-   # Streamlit Web App
-   streamlit run app.py
-   
-   # Or CLI version
-   python main.py
-   ```
+# Run web app
+streamlit run app.py
 
-## 💡 Usage
+# Or run CLI version
+python main.py
+```
+
+## 💡 Usage Examples
 
 ### Web Interface
-1. Launch the app with `streamlit run app.py`
+1. Launch with `streamlit run app.py`
 2. Upload your CSV or PDF file
-3. Ask questions about your document
-4. Get AI-powered insights with source citations
+3. Ask questions like:
+   - *"What are the top 5 products by sales?"*
+   - *"Summarize the main findings"*
+   - *"Show me trends in the data"*
 
 ### Command Line
-1. Run `python main.py`
-2. Enter the path to your document
-3. Start asking questions interactively
+```bash
+python main.py path/to/your/document.pdf
+```
+
+Then ask questions interactively!
 
 ## 🏗️ Architecture
 
 ```
-DocuScope AI
-├── Document Upload (CSV/PDF)
-├── Document Processing (LangChain Loaders)
-├── Text Embedding (Ollama mxbai-embed-large)
-├── Vector Storage (ChromaDB)
-├── LLM Query (Ollama Llama 3.2:3b)
-└── Response with Sources
+Document Upload → LangChain Loader → Text Chunking → 
+Ollama Embeddings → ChromaDB Storage → Vector Search → 
+Ollama LLM → AI Response + Sources
 ```
 
-## 🛠️ Tech Stack
-
+**Tech Stack:**
 - **Backend**: Python, LangChain, ChromaDB
-- **AI Models**: Ollama (Llama 3.2:3b, mxbai-embed-large)
-- **Frontend**: Streamlit
-- **Document Processing**: PyPDF, CSV Loader
-- **Vector Database**: Chroma
+- **AI**: Ollama (Llama 3.2:3b, mxbai-embed-large)  
+- **Frontend**: Streamlit with custom CSS
+- **Processing**: PyPDF, CSV Loader
 
-## 📊 Example Use Cases
+## 📊 Sample Questions
 
-- **Business Analytics**: Query sales data, financial reports
-- **Research**: Analyze research papers, extract key insights  
-- **Data Exploration**: Ask questions about CSV datasets
-- **Document Review**: Get summaries and insights from PDFs
+**For CSV Data:**
+- "What's the average revenue by quarter?"
+- "Which customer segment is most profitable?"
+- "Show me sales trends over time"
+
+**For PDF Documents:**
+- "What are the key recommendations?"
+- "Summarize the methodology section"
+- "Find mentions of risk factors"
 
 ## 🔒 Privacy & Security
 
 - All processing happens locally on your machine
-- No data is sent to external APIs or cloud services
-- Documents are processed in memory only
-- Complete control over your sensitive information
+- No data sent to external APIs or cloud services
+- Documents processed in memory only
+- Complete control over sensitive information
 
-## 📝 Sample Questions
+## 🛠️ Development
 
-**For CSV files:**
-- "What are the top 5 products by sales?"
-- "Show me trends in the data"
-- "What's the average value in column X?"
+### API Usage
 
-**For PDF files:**
-- "Summarize the main points of this document"
-- "What are the key recommendations?"
-- "Find information about [specific topic]"
+```python
+from main import DocuScopeAI
+
+# Initialize
+app = DocuScopeAI()
+app.initialize_models()
+
+# Load document
+app.load_document("data.csv")
+
+# Ask questions
+result = app.ask_question("What are the main insights?")
+print(result["result"])
+```
+
+### Configuration
+
+Models and settings can be customized in the source code:
+
+```python
+# Different models
+llm = Ollama(model="llama3.2:1b")  # Faster, smaller
+embedding = OllamaEmbeddings(model="nomic-embed-text")
+```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
@@ -120,20 +140,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
-
-**David Osei Kumi**
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
 ## 🙏 Acknowledgments
 
-- [Ollama](https://ollama.ai/) for providing excellent local AI models
-- [LangChain](https://langchain.com/) for the powerful RAG framework
+- [Ollama](https://ollama.ai/) for excellent local AI models
+- [LangChain](https://langchain.com/) for the RAG framework
 - [Streamlit](https://streamlit.io/) for the beautiful web interface
 
 ---
 
-*Built with ❤️ for privacy-conscious document analysis*
+**Built with ❤️ for privacy-conscious document analysis**

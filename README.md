@@ -10,6 +10,16 @@ DocuScope AI is a powerful document analysis tool that uses **Retrieval-Augmente
 ![LangChain](https://img.shields.io/badge/langchain-0.1.0-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+---
+
+## 🎬 Live Demo
+
+![DocuScope AI Demo](assets/demo.gif)
+
+*DocuScope AI in action - Upload a document, ask questions, get instant insights*
+
+---
+
 ## ✨ Features
 
 - 🔒 **100% Offline Processing** - Your data never leaves your device
